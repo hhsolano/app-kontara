@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONTARA - Dashboard de Finanzas Personales</title>
+    <!-- Tipografía profesional y neutra -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Hoja de estilos externa (Sin estilos en línea) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Barra de navegación principal (Posicionamiento FIXED y contenedor FLEXBOX) -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="brand-logo">K</span>
+                <span class="brand-name">KONTARA</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="#" class="nav-link">Movimientos</a></li>
+                <li><a href="#" class="nav-link">Presupuestos</a></li>
+                <li><a href="#" class="nav-link">Metas</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Botón con indicador flotante (Posicionamiento RELATIVE y ABSOLUTE) -->
+                <button class="icon-button" aria-label="Notificaciones" id="btn-notifications">
+                    <span class="icon-bell">&#128276;</span>
+                    <span class="notification-badge"></span>
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar">JD</div>
+                    <span class="user-name">Juan David</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <!-- Encabezado del Período con FLEXBOX -->
+        <section class="period-header">
+            <div class="period-info">
+                <h1 class="page-title">Resumen Financiero</h1>
+                <p class="page-subtitle">Indicadores clave de tus finanzas en tiempo real</p>
+            </div>
+            <div class="period-selector">
+                <label for="select-period" class="selector-label">Período:</label>
+                <select id="select-period" class="select-input">
+                    <option value="current-month" selected>Mes Actual (Octubre 2026)</option>
+                    <option value="prev-month">Septiembre 2026</option>
+                    <option value="year">Año 2026</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- 2. Sección de Tarjetas de Indicadores (KPIs) con FLEXBOX y MODELO DE CAJA -->
+        <section class="kpi-container" aria-label="Indicadores Financieros">
+            
+            <!-- Tarjeta 1: Balance Neto Disponible -->
+            <article class="kpi-card card-balance">
+                <!-- Badge posicionado con ABSOLUTE dentro de la tarjeta RELATIVE -->
+                <span class="kpi-badge badge-neutral">Tiempo Real</span>
+                <div class="kpi-header">
+                    <span class="kpi-icon icon-balance">&#128179;</span>
+                    <h2 class="kpi-title">Balance Neto Disponible</h2>
+                </div>
+                <div class="kpi-body">
+                    <p class="kpi-amount" id="total-balance">$ 0</p>
+                    <p class="kpi-status" id="balance-status">Calculando balance disponible...</p>
+                </div>
+                <div class="kpi-footer">
+                    <span class="kpi-subtext">Capital neto después de egresos</span>
+                </div>
+            </article>
+
+            <!-- Tarjeta 2: Ingresos Totales -->
+            <article class="kpi-card card-income">
+                <span class="kpi-badge badge-success">+ Entradas</span>
+                <div class="kpi-header">
+                    <span class="kpi-icon icon-income">&#8593;</span>
+                    <h2 class="kpi-title">Ingresos Totales</h2>
+                </div>
+                <div class="kpi-body">
+                    <p class="kpi-amount text-success" id="total-income">$ 0</p>
+                    <p class="kpi-status">Suma de salarios, ventas y abonos</p>
+                </div>
+                <div class="kpi-footer">
+                    <span class="kpi-subtext" id="income-count">0 movimientos registrados</span>
+                </div>
+            </article>
+
+            <!-- Tarjeta 3: Egresos Totales -->
+            <article class="kpi-card card-expense">
+                <span class="kpi-badge badge-danger">- Salidas</span>
+                <div class="kpi-header">
+                    <span class="kpi-icon icon-expense">&#8595;</span>
+                    <h2 class="kpi-title">Egresos Totales</h2>
+                </div>
+                <div class="kpi-body">
+                    <p class="kpi-amount text-danger" id="total-expense">$ 0</p>
+                    <p class="kpi-status">Gastos fijos, compras y servicios</p>
+                </div>
+                <div class="kpi-footer">
+                    <span class="kpi-subtext" id="expense-count">0 movimientos registrados</span>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Sección de Proporción y Salud Financiera maquetada con FLEXBOX -->
+        <section class="financial-health-card">
+            <div class="health-header">
+                <div>
+                    <h3 class="health-title">Distribución y Capacidad de Ahorro</h3>
+                    <p class="health-subtitle">Porcentaje de ingresos retenidos frente a egresos efectuados</p>
+                </div>
+                <span class="health-percentage" id="savings-rate">0% Ahorro</span>
+            </div>
+
+            <!-- Barra de progreso estructurada con POSICIONAMIENTO RELATIVO Y ABSOLUTO -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="health-legend">
+                <div class="legend-item">
+                    <span class="legend-dot dot-income"></span>
+                    <span>Ingresos: <strong id="legend-income">$ 0</strong></span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot dot-expense"></span>
+                    <span>Egresos: <strong id="legend-expense">$ 0</strong></span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot dot-balance"></span>
+                    <span>Margen disponible: <strong id="legend-balance">$ 0</strong></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer sobrio y neutro -->
+    <footer class="main-footer">
+        <p>&copy; 2026 KONTARA - Sistema de Gestión Financiera Personal.</p>
+    </footer>
+
+    <!-- Lógica de cálculo en tiempo real -->
+    <script src="app.js"></script>
+</body>
+</html>

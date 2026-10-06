@@ -1,0 +1,543 @@
+/* ==========================================================================
+   KONTARA - HOJA DE ESTILOS EXTERNA (style.css)
+   Cumplimiento estricto:
+   1. Selectores, Colores y Tipografías neutras profesionales
+   2. Modelo de Caja (margin, padding, border, box-sizing)
+   3. Posicionamiento (fixed, relative, absolute)
+   4. Flexbox (display: flex, justify-content, align-items, gap)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. RESET Y VARIABLES DE DISEÑO (Paleta Neutra Fintech)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Paleta Neutra Principal */
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-border: #e2e8f0;
+    --color-border-subtle: #f1f5f9;
+
+    /* Textos en tonos carbón y pizarra */
+    --color-text-main: #0f172a;
+    --color-text-muted: #64748b;
+    --color-text-light: #94a3b8;
+
+    /* Acentos funcionales sobrios */
+    --color-primary: #1e293b;
+    --color-primary-hover: #0f172a;
+    --color-income: #059669;
+    --color-income-bg: #ecfdf5;
+    --color-expense: #dc2626;
+    --color-expense-bg: #fef2f2;
+    --color-badge-bg: #f1f5f9;
+
+    /* Tipografía */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Sombras sutiles y naturales */
+    --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+    --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Reset del Modelo de Caja */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   2. NAVEGACIÓN Y CABECERA (Posicionamiento FIXED + FLEXBOX)
+   -------------------------------------------------------------------------- */
+.main-header {
+    /* Posicionamiento FIXED: se mantiene fijo en la parte superior al scrollear */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-subtle);
+}
+
+.navbar {
+    /* SECCIÓN FLEXBOX 1: Barra de navegación */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.85rem 1.5rem; /* Modelo de caja: padding */
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.brand-logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px; /* Modelo de caja: border-radius */
+}
+
+.brand-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-main);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    padding: 0.4rem 0.2rem;
+    transition: color 0.15s ease-in-out;
+}
+
+.nav-link:hover {
+    color: var(--color-text-main);
+}
+
+.nav-link.active {
+    color: var(--color-text-main);
+    border-bottom: 2px solid var(--color-primary); /* Modelo de caja: border */
+    font-weight: 600;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-button {
+    /* Posicionamiento RELATIVE para anclar el punto de notificación */
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.5rem; /* Modelo de caja: padding */
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.icon-button:hover {
+    background-color: var(--color-border-subtle);
+    border-color: var(--color-text-light);
+}
+
+/* Posicionamiento ABSOLUTE: Badge rojo de notificación */
+.notification-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-expense);
+    border-radius: 50%;
+    border: 2px solid var(--color-surface);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-left: 0.5rem;
+}
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    color: #334155;
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+/* --------------------------------------------------------------------------
+   3. CONTENIDO PRINCIPAL (Espaciado por navbar fixed)
+   -------------------------------------------------------------------------- */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    /* Margin top para compensar la navbar con position: fixed */
+    margin-top: 5.5rem;
+    padding: 1.5rem 1.5rem 3rem 1.5rem; /* Modelo de caja: padding */
+}
+
+/* Encabezado del Período con FLEXBOX */
+.period-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.75rem; /* Modelo de caja: margin */
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: -0.025em;
+}
+
+.page-subtitle {
+    font-size: 0.925rem;
+    color: var(--color-text-muted);
+    margin-top: 0.2rem;
+}
+
+.period-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.selector-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+.select-input {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.55rem 0.9rem; /* Modelo de caja: padding */
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--color-text-main);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+}
+
+.select-input:focus {
+    border-color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. SECCIÓN DE TARJETAS INDICADORES (KPIs)
+   SECCIÓN FLEXBOX 2 + MODELO DE CAJA + POSICIONAMIENTO
+   -------------------------------------------------------------------------- */
+.kpi-container {
+    /* SECCIÓN FLEXBOX 2 indispensable */
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1.5rem;
+    margin-bottom: 2rem; /* Modelo de caja: margin */
+    flex-wrap: wrap;
+}
+
+.kpi-card {
+    /* Posicionamiento RELATIVE para ubicar la etiqueta badge con ABSOLUTE */
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem; /* Modelo de caja: padding */
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* Posicionamiento ABSOLUTE: Badge en esquina superior derecha */
+.kpi-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem; /* Modelo de caja */
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+}
+
+.badge-neutral {
+    background-color: var(--color-badge-bg);
+    color: var(--color-text-muted);
+}
+
+.badge-success {
+    background-color: var(--color-income-bg);
+    color: var(--color-income);
+}
+
+.badge-danger {
+    background-color: var(--color-expense-bg);
+    color: var(--color-expense);
+}
+
+/* Encabezado interno de la tarjeta */
+.kpi-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.kpi-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.icon-balance {
+    background-color: #f1f5f9;
+    color: var(--color-primary);
+}
+
+.icon-income {
+    background-color: var(--color-income-bg);
+    color: var(--color-income);
+    font-weight: 700;
+}
+
+.icon-expense {
+    background-color: var(--color-expense-bg);
+    color: var(--color-expense);
+    font-weight: 700;
+}
+
+.kpi-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+.kpi-body {
+    margin-bottom: 1rem;
+}
+
+.kpi-amount {
+    font-size: 1.95rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-main);
+    line-height: 1.2;
+}
+
+.text-success {
+    color: var(--color-income);
+}
+
+.text-danger {
+    color: var(--color-expense);
+}
+
+.kpi-status {
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+    margin-top: 0.4rem;
+}
+
+.kpi-footer {
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: 0.85rem;
+}
+
+.kpi-subtext {
+    font-size: 0.775rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   5. RESUMEN DE SALUD FINANCIERA (Flexbox + Posicionamiento en Barra)
+   -------------------------------------------------------------------------- */
+.financial-health-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+}
+
+.health-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    gap: 1rem;
+}
+
+.health-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.health-subtitle {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 0.2rem;
+}
+
+.health-percentage {
+    display: inline-block;
+    background-color: #f1f5f9;
+    color: var(--color-text-main);
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+}
+
+/* Contenedor relativo para barra de progreso */
+.progress-bar-container {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+}
+
+/* Relleno absoluto de la barra */
+.progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--color-income);
+    border-radius: 9999px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.health-legend {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-income {
+    background-color: var(--color-income);
+}
+
+.dot-expense {
+    background-color: var(--color-expense);
+}
+
+.dot-balance {
+    background-color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   6. FOOTER
+   -------------------------------------------------------------------------- */
+.main-footer {
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+    margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE DESIGN (Media Queries)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .main-content {
+        margin-top: 9rem;
+    }
+
+    .kpi-container {
+        flex-direction: column;
+    }
+
+    .period-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .health-legend {
+        gap: 1rem;
+    }
+}
