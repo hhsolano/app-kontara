@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KONTARA - Dashboard de Finanzas Personales</title>
-    <!-- Tipografía profesional y neutra -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Hoja de estilos externa (Sin estilos en línea) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 1. Barra de navegación principal (Posicionamiento FIXED y contenedor FLEXBOX) -->
     <header class="main-header">
         <nav class="navbar">
             <div class="nav-brand">
@@ -29,7 +26,6 @@
             </ul>
 
             <div class="nav-actions">
-                <!-- Botón con indicador flotante (Posicionamiento RELATIVE y ABSOLUTE) -->
                 <button class="icon-button" aria-label="Notificaciones" id="btn-notifications">
                     <span class="icon-bell">&#128276;</span>
                     <span class="notification-badge"></span>
@@ -42,9 +38,7 @@
         </nav>
     </header>
 
-    <!-- Contenido Principal -->
     <main class="main-content">
-        <!-- Encabezado del Período con FLEXBOX -->
         <section class="period-header">
             <div class="period-info">
                 <h1 class="page-title">Resumen Financiero</h1>
@@ -53,19 +47,15 @@
             <div class="period-selector">
                 <label for="select-period" class="selector-label">Período:</label>
                 <select id="select-period" class="select-input">
-                    <option value="current-month" selected>Mes Actual (Octubre 2026)</option>
-                    <option value="prev-month">Septiembre 2026</option>
+                    <option value="september" selected>Septiembre 2026</option>
                     <option value="year">Año 2026</option>
                 </select>
             </div>
         </section>
 
-        <!-- 2. Sección de Tarjetas de Indicadores (KPIs) con FLEXBOX y MODELO DE CAJA -->
         <section class="kpi-container" aria-label="Indicadores Financieros">
             
-            <!-- Tarjeta 1: Balance Neto Disponible -->
             <article class="kpi-card card-balance">
-                <!-- Badge posicionado con ABSOLUTE dentro de la tarjeta RELATIVE -->
                 <span class="kpi-badge badge-neutral">Tiempo Real</span>
                 <div class="kpi-header">
                     <span class="kpi-icon icon-balance">&#128179;</span>
@@ -73,14 +63,13 @@
                 </div>
                 <div class="kpi-body">
                     <p class="kpi-amount" id="total-balance">$ 0</p>
-                    <p class="kpi-status" id="balance-status">Calculando balance disponible...</p>
+                    <p class="kpi-status" id="balance-status">Sin movimientos registrados en este período.</p>
                 </div>
                 <div class="kpi-footer">
                     <span class="kpi-subtext">Capital neto después de egresos</span>
                 </div>
             </article>
 
-            <!-- Tarjeta 2: Ingresos Totales -->
             <article class="kpi-card card-income">
                 <span class="kpi-badge badge-success">+ Entradas</span>
                 <div class="kpi-header">
@@ -96,7 +85,6 @@
                 </div>
             </article>
 
-            <!-- Tarjeta 3: Egresos Totales -->
             <article class="kpi-card card-expense">
                 <span class="kpi-badge badge-danger">- Salidas</span>
                 <div class="kpi-header">
@@ -114,7 +102,6 @@
 
         </section>
 
-        <!-- Sección de Proporción y Salud Financiera maquetada con FLEXBOX -->
         <section class="financial-health-card">
             <div class="health-header">
                 <div>
@@ -124,7 +111,6 @@
                 <span class="health-percentage" id="savings-rate">0% Ahorro</span>
             </div>
 
-            <!-- Barra de progreso estructurada con POSICIONAMIENTO RELATIVO Y ABSOLUTO -->
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" id="progress-fill"></div>
             </div>
@@ -146,12 +132,10 @@
         </section>
     </main>
 
-    <!-- Footer sobrio y neutro -->
     <footer class="main-footer">
         <p>&copy; 2026 KONTARA - Sistema de Gestión Financiera Personal.</p>
     </footer>
 
-    <!-- Lógica de cálculo en tiempo real -->
     <script src="app.js"></script>
 </body>
 </html>

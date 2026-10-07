@@ -1,28 +1,13 @@
-/* ==========================================================================
-   KONTARA - HOJA DE ESTILOS EXTERNA (style.css)
-   Cumplimiento estricto:
-   1. Selectores, Colores y Tipografías neutras profesionales
-   2. Modelo de Caja (margin, padding, border, box-sizing)
-   3. Posicionamiento (fixed, relative, absolute)
-   4. Flexbox (display: flex, justify-content, align-items, gap)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. RESET Y VARIABLES DE DISEÑO (Paleta Neutra Fintech)
-   -------------------------------------------------------------------------- */
 :root {
-    /* Paleta Neutra Principal */
     --color-bg: #f8fafc;
     --color-surface: #ffffff;
     --color-border: #e2e8f0;
     --color-border-subtle: #f1f5f9;
 
-    /* Textos en tonos carbón y pizarra */
     --color-text-main: #0f172a;
     --color-text-muted: #64748b;
     --color-text-light: #94a3b8;
 
-    /* Acentos funcionales sobrios */
     --color-primary: #1e293b;
     --color-primary-hover: #0f172a;
     --color-income: #059669;
@@ -31,15 +16,12 @@
     --color-expense-bg: #fef2f2;
     --color-badge-bg: #f1f5f9;
 
-    /* Tipografía */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     
-    /* Sombras sutiles y naturales */
     --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
     --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
 }
 
-/* Reset del Modelo de Caja */
 * {
     margin: 0;
     padding: 0;
@@ -56,11 +38,8 @@ body {
     flex-direction: column;
 }
 
-/* --------------------------------------------------------------------------
-   2. NAVEGACIÓN Y CABECERA (Posicionamiento FIXED + FLEXBOX)
-   -------------------------------------------------------------------------- */
+/* Header y Navegación */
 .main-header {
-    /* Posicionamiento FIXED: se mantiene fijo en la parte superior al scrollear */
     position: fixed;
     top: 0;
     left: 0;
@@ -72,13 +51,12 @@ body {
 }
 
 .navbar {
-    /* SECCIÓN FLEXBOX 1: Barra de navegación */
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.85rem 1.5rem; /* Modelo de caja: padding */
+    padding: 0.85rem 1.5rem;
 }
 
 .nav-brand {
@@ -97,7 +75,7 @@ body {
     color: #ffffff;
     font-weight: 700;
     font-size: 1rem;
-    border-radius: 8px; /* Modelo de caja: border-radius */
+    border-radius: 8px;
 }
 
 .brand-name {
@@ -129,7 +107,7 @@ body {
 
 .nav-link.active {
     color: var(--color-text-main);
-    border-bottom: 2px solid var(--color-primary); /* Modelo de caja: border */
+    border-bottom: 2px solid var(--color-primary);
     font-weight: 600;
 }
 
@@ -140,12 +118,11 @@ body {
 }
 
 .icon-button {
-    /* Posicionamiento RELATIVE para anclar el punto de notificación */
     position: relative;
     background: transparent;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    padding: 0.5rem; /* Modelo de caja: padding */
+    padding: 0.5rem;
     cursor: pointer;
     font-size: 1rem;
     display: inline-flex;
@@ -160,7 +137,6 @@ body {
     border-color: var(--color-text-light);
 }
 
-/* Posicionamiento ABSOLUTE: Badge rojo de notificación */
 .notification-badge {
     position: absolute;
     top: 5px;
@@ -199,25 +175,22 @@ body {
     color: var(--color-text-main);
 }
 
-/* --------------------------------------------------------------------------
-   3. CONTENIDO PRINCIPAL (Espaciado por navbar fixed)
-   -------------------------------------------------------------------------- */
+/* Contenido Principal */
 .main-content {
     flex: 1;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    /* Margin top para compensar la navbar con position: fixed */
     margin-top: 5.5rem;
-    padding: 1.5rem 1.5rem 3rem 1.5rem; /* Modelo de caja: padding */
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
 }
 
-/* Encabezado del Período con FLEXBOX */
+/* Encabezado del Período */
 .period-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.75rem; /* Modelo de caja: margin */
+    margin-bottom: 1.75rem;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -251,7 +224,7 @@ body {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    padding: 0.55rem 0.9rem; /* Modelo de caja: padding */
+    padding: 0.55rem 0.9rem;
     font-family: inherit;
     font-size: 0.875rem;
     color: var(--color-text-main);
@@ -264,29 +237,24 @@ body {
     border-color: var(--color-primary);
 }
 
-/* --------------------------------------------------------------------------
-   4. SECCIÓN DE TARJETAS INDICADORES (KPIs)
-   SECCIÓN FLEXBOX 2 + MODELO DE CAJA + POSICIONAMIENTO
-   -------------------------------------------------------------------------- */
+/* Tarjetas de Indicadores (KPIs) */
 .kpi-container {
-    /* SECCIÓN FLEXBOX 2 indispensable */
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     gap: 1.5rem;
-    margin-bottom: 2rem; /* Modelo de caja: margin */
+    margin-bottom: 2rem;
     flex-wrap: wrap;
 }
 
 .kpi-card {
-    /* Posicionamiento RELATIVE para ubicar la etiqueta badge con ABSOLUTE */
     position: relative;
     flex: 1;
     min-width: 280px;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 12px;
-    padding: 1.5rem; /* Modelo de caja: padding */
+    padding: 1.5rem;
     box-shadow: var(--shadow-card);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -296,14 +264,13 @@ body {
     box-shadow: 0 8px 16px -2px rgba(15, 23, 42, 0.06);
 }
 
-/* Posicionamiento ABSOLUTE: Badge en esquina superior derecha */
 .kpi-badge {
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
     font-size: 0.75rem;
     font-weight: 600;
-    padding: 0.25rem 0.6rem; /* Modelo de caja */
+    padding: 0.25rem 0.6rem;
     border-radius: 9999px;
     letter-spacing: 0.02em;
 }
@@ -323,7 +290,6 @@ body {
     color: var(--color-expense);
 }
 
-/* Encabezado interno de la tarjeta */
 .kpi-header {
     display: flex;
     align-items: center;
@@ -401,9 +367,7 @@ body {
     font-weight: 500;
 }
 
-/* --------------------------------------------------------------------------
-   5. RESUMEN DE SALUD FINANCIERA (Flexbox + Posicionamiento en Barra)
-   -------------------------------------------------------------------------- */
+/* Distribución y Ahorro */
 .financial-health-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -443,7 +407,6 @@ body {
     border: 1px solid var(--color-border);
 }
 
-/* Contenedor relativo para barra de progreso */
 .progress-bar-container {
     position: relative;
     width: 100%;
@@ -454,7 +417,6 @@ body {
     margin-bottom: 1.25rem;
 }
 
-/* Relleno absoluto de la barra */
 .progress-bar-fill {
     position: absolute;
     top: 0;
@@ -501,9 +463,7 @@ body {
     background-color: var(--color-primary);
 }
 
-/* --------------------------------------------------------------------------
-   6. FOOTER
-   -------------------------------------------------------------------------- */
+/* Footer */
 .main-footer {
     border-top: 1px solid var(--color-border);
     background-color: var(--color-surface);
@@ -514,9 +474,7 @@ body {
     margin-top: auto;
 }
 
-/* --------------------------------------------------------------------------
-   7. RESPONSIVE DESIGN (Media Queries)
-   -------------------------------------------------------------------------- */
+/* Responsive */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
