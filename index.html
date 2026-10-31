@@ -15,10 +15,10 @@
 
     <header class="main-header">
         <nav class="navbar">
-            <div class="nav-brand">
+            <a href="index.html" class="nav-brand">
                 <span class="brand-logo">K</span>
                 <span class="brand-name">KONTARA</span>
-            </div>
+            </a>
 
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link active">Dashboard</a></li>
@@ -27,110 +27,159 @@
                 <li><a href="#" class="nav-link">Metas</a></li>
             </ul>
 
-            <div class="nav-actions">
+            <section class="nav-actions">
                 <button class="icon-button" aria-label="Notificaciones" id="btn-notifications">
                     <span class="icon-bell">&#128276;</span>
-                    <span class="notification-badge"></span>
+                    <sup class="notification-badge"></sup>
                 </button>
-                <div class="user-profile">
-                    <div class="user-avatar">JD</div>
-                    <span class="user-name">Juan David</span>
-                </div>
-            </div>
+                <figure class="user-profile">
+                    <span class="user-avatar">JD</span>
+                    <figcaption class="user-name">Juan David</figcaption>
+                </figure>
+            </section>
         </nav>
     </header>
 
     <main class="main-content">
-        <section class="period-header">
-            <div class="period-info">
+        <header class="period-header">
+            <hgroup class="period-info">
                 <h1 class="page-title">Resumen Financiero</h1>
                 <p class="page-subtitle">Indicadores clave de tus finanzas en tiempo real</p>
-            </div>
-            <div class="period-selector">
+            </hgroup>
+            <p class="period-selector">
                 <label for="select-period" class="selector-label">Período:</label>
                 <select id="select-period" class="select-input">
                     <option value="september" selected>Septiembre 2026</option>
                     <option value="year">Año 2026</option>
                 </select>
-            </div>
-        </section>
+            </p>
+        </header>
 
         <section class="kpi-container" aria-label="Indicadores Financieros">
 
             <article class="kpi-card card-balance">
                 <span class="kpi-badge badge-neutral">Tiempo Real</span>
-                <div class="kpi-header">
+                <header class="kpi-header">
                     <span class="kpi-icon icon-balance">&#128179;</span>
                     <h2 class="kpi-title">Balance Neto Disponible</h2>
-                </div>
-                <div class="kpi-body">
-                    <p class="kpi-amount" id="total-balance">$ 0</p>
+                </header>
+                <section class="kpi-body">
+                    <data class="kpi-amount" id="total-balance" value="0">$ 0</data>
                     <p class="kpi-status" id="balance-status">Sin movimientos registrados en este período.</p>
-                </div>
-                <div class="kpi-footer">
-                    <span class="kpi-subtext">Capital neto después de egresos</span>
-                </div>
+                </section>
+                <footer class="kpi-footer">
+                    <small class="kpi-subtext">Capital neto después de egresos</small>
+                </footer>
             </article>
 
             <article class="kpi-card card-income">
                 <span class="kpi-badge badge-success">+ Entradas</span>
-                <div class="kpi-header">
+                <header class="kpi-header">
                     <span class="kpi-icon icon-income">&#8593;</span>
                     <h2 class="kpi-title">Ingresos Totales</h2>
-                </div>
-                <div class="kpi-body">
-                    <p class="kpi-amount text-success" id="total-income">$ 0</p>
+                </header>
+                <section class="kpi-body">
+                    <data class="kpi-amount text-success" id="total-income" value="0">$ 0</data>
                     <p class="kpi-status">Suma de salarios, ventas y abonos</p>
-                </div>
-                <div class="kpi-footer">
-                    <span class="kpi-subtext" id="income-count">0 movimientos registrados</span>
-                </div>
+                </section>
+                <footer class="kpi-footer">
+                    <small class="kpi-subtext" id="income-count">0 movimientos registrados</small>
+                </footer>
             </article>
 
             <article class="kpi-card card-expense">
                 <span class="kpi-badge badge-danger">- Salidas</span>
-                <div class="kpi-header">
+                <header class="kpi-header">
                     <span class="kpi-icon icon-expense">&#8595;</span>
                     <h2 class="kpi-title">Egresos Totales</h2>
-                </div>
-                <div class="kpi-body">
-                    <p class="kpi-amount text-danger" id="total-expense">$ 0</p>
+                </header>
+                <section class="kpi-body">
+                    <data class="kpi-amount text-danger" id="total-expense" value="0">$ 0</data>
                     <p class="kpi-status">Gastos fijos, compras y servicios</p>
-                </div>
-                <div class="kpi-footer">
-                    <span class="kpi-subtext" id="expense-count">0 movimientos registrados</span>
-                </div>
+                </section>
+                <footer class="kpi-footer">
+                    <small class="kpi-subtext" id="expense-count">0 movimientos registrados</small>
+                </footer>
             </article>
 
         </section>
 
         <section class="financial-health-card">
-            <div class="health-header">
-                <div>
+            <header class="health-header">
+                <hgroup>
                     <h3 class="health-title">Distribución y Capacidad de Ahorro</h3>
                     <p class="health-subtitle">Porcentaje de ingresos retenidos frente a egresos efectuados</p>
-                </div>
-                <span class="health-percentage" id="savings-rate">0% Ahorro</span>
-            </div>
+                </hgroup>
+                <output class="health-percentage" id="savings-rate">0% Ahorro</output>
+            </header>
 
-            <div class="progress-bar-container">
-                <div class="progress-bar-fill" id="progress-fill"></div>
-            </div>
+            <progress class="progress-bar-container" id="progress-fill" value="0" max="100"></progress>
 
-            <div class="health-legend">
-                <div class="legend-item">
+            <ul class="health-legend">
+                <li class="legend-item">
                     <span class="legend-dot dot-income"></span>
                     <span>Ingresos: <strong id="legend-income">$ 0</strong></span>
-                </div>
-                <div class="legend-item">
+                </li>
+                <li class="legend-item">
                     <span class="legend-dot dot-expense"></span>
                     <span>Egresos: <strong id="legend-expense">$ 0</strong></span>
-                </div>
-                <div class="legend-item">
+                </li>
+                <li class="legend-item">
                     <span class="legend-dot dot-balance"></span>
                     <span>Margen disponible: <strong id="legend-balance">$ 0</strong></span>
-                </div>
-            </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Historia de Usuario 2 (RF-02): Gráficos Interactivos y Distribución del Dinero -->
+        <section class="analytics-section" aria-label="Visualización Gráfica y Distribución">
+            <header class="analytics-header">
+                <hgroup>
+                    <h2 class="section-title">Análisis Visual de Finanzas</h2>
+                    <p class="section-subtitle">Distribución porcentual de gastos y asignación de capital interactiva</p>
+                </hgroup>
+            </header>
+
+            <section class="charts-grid">
+
+                <article class="chart-card">
+                    <header class="chart-card-header">
+                        <hgroup>
+                            <h3 class="chart-card-title">Gastos por Categoría</h3>
+                            <p class="chart-card-subtitle">Porcentaje de gastos sobre el total de egresos</p>
+                        </hgroup>
+                        <span class="chart-badge">Interactivo</span>
+                    </header>
+                    <figure class="chart-wrapper">
+                        <canvas id="expenses-chart" role="img" aria-label="Gráfico circular de porcentaje de gastos por categoría"></canvas>
+                    </figure>
+                    <footer class="chart-card-footer">
+                        <h4 class="breakdown-title">Desglose porcentual por categoría</h4>
+                        <ul class="category-breakdown-list" id="category-breakdown-list">
+                            <!-- Inserción dinámica sin ningún div -->
+                        </ul>
+                    </footer>
+                </article>
+
+                <article class="chart-card">
+                    <header class="chart-card-header">
+                        <hgroup>
+                            <h3 class="chart-card-title">Distribución del Dinero</h3>
+                            <p class="chart-card-subtitle">Asignación entre ingresos, egresos y disponible</p>
+                        </hgroup>
+                        <span class="chart-badge">Flujo Neto</span>
+                    </header>
+                    <figure class="chart-wrapper">
+                        <canvas id="distribution-chart" role="img" aria-label="Gráfico de distribución del flujo de dinero"></canvas>
+                    </figure>
+                    <footer class="chart-card-footer">
+                        <p class="chart-summary-text" id="distribution-summary-text">
+                            Calculando asignación de capital...
+                        </p>
+                    </footer>
+                </article>
+
+            </section>
         </section>
     </main>
 
@@ -138,7 +187,7 @@
         <p>&copy; 2026 KONTARA - Sistema de Gestión Financiera Personal.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
 </body>
-
 </html>

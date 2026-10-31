@@ -463,6 +463,178 @@ body {
     background-color: var(--color-primary);
 }
 
+/* Historia de Usuario 2 (RF-02): Gráficos y Distribución */
+.analytics-section {
+    margin-top: 2.25rem;
+}
+
+.analytics-header {
+    margin-bottom: 1.35rem;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.chart-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.chart-card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.chart-card-subtitle {
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+    margin-top: 0.2rem;
+}
+
+.chart-badge {
+    font-size: 0.725rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background-color: var(--color-badge-bg);
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    white-space: nowrap;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.chart-card-footer {
+    border-top: 1px solid var(--color-border-subtle);
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+}
+
+.breakdown-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+}
+
+.category-breakdown-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    max-height: 190px;
+    overflow-y: auto;
+    padding-right: 0.35rem;
+}
+
+/* Scrollbar sutil para desglose de categorías */
+.category-breakdown-list::-webkit-scrollbar {
+    width: 5px;
+}
+.category-breakdown-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 4px;
+}
+
+.category-breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.825rem;
+    padding: 0.2rem 0;
+}
+
+.category-name-group {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+.category-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.category-values-group {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.category-amount {
+    color: var(--color-text-muted);
+    font-size: 0.825rem;
+}
+
+.category-percent-tag {
+    background-color: var(--color-badge-bg);
+    color: var(--color-text-main);
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+}
+
+.chart-summary-text {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+}
+
+.empty-chart-notice {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
 /* Footer */
 .main-footer {
     border-top: 1px solid var(--color-border);
@@ -474,7 +646,18 @@ body {
     margin-top: auto;
 }
 
-/* Responsive */
+/* Responsive: Tablets y Móviles */
+@media (max-width: 992px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .chart-wrapper {
+        height: 250px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -484,6 +667,7 @@ body {
 
     .main-content {
         margin-top: 9rem;
+        padding: 1.25rem 1rem 2.5rem 1rem;
     }
 
     .kpi-container {
@@ -497,5 +681,32 @@ body {
 
     .health-legend {
         gap: 1rem;
+    }
+
+    .chart-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.35rem;
+    }
+
+    .chart-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .category-breakdown-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .category-values-group {
+        width: 100%;
+        justify-content: space-between;
     }
 }
